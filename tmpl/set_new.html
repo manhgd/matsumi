@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Set of target words{% end %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Create a set</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form" method="POST">
+            {% module xsrf_form_html() %}
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+              <label for="name">Set of words</label>
+              <textarea rows="15" class="form-control" id="words" name="words" placeholder="Each words separated by a space or new line"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+    </div>
+</div>
+{% end %}

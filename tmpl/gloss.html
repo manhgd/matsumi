@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}Gloss (using remote WWWJDIC){% end %}
+
+{% block content %}
+<div class="row">
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Your text</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <textarea rows="15" class="form-control" id="text" placeholder="Skype-style timestamp will be automatically removed"></textarea>
+            </div>
+            <button id="btn-gloss" class="btn btn-primary">Gloss</button>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Gloss results</h3>
+        </div>
+        <div class="panel-body" id="results">
+        </div>
+    </div>
+</div>
+</div>
+{% end %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+        $('#btn-gloss').click(function() {
+            var text = $('#text').val();
+            text = text.replace(/\[.+\]\s[^\s]*:/gi, ''); // Replace Skype chat
+            text = text.replace(/\n/g, "。\n"); // Mark sentence end
+            $.post('/gloss', {'text': text}, function(html) {
+                $('#results').html(html);
+            });
+            $('#text').val(text);
+        });
+    });
+</script>
+{% end %}

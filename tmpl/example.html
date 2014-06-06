@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Reading examples in set "{{ the_set['name'] }}" {% end %}
+
+{% block body_class %}flip-example{% end %}
+    
+{% block content %}
+    {% include fliper.html %}
+{% end %}
+
+{% block javascript %}
+    <script src="{{ static_url('js/jquery.hotkeys.js') }}"></script>
+    <script src="{{ static_url('js/fliper/abstract.js') }}"></script>
+    <script src="{{ static_url('js/fliper/set.js') }}"></script>
+    <script src="{{ static_url('js/fliper/example.js') }}"></script>
+    <script>
+    $(function() {
+        ex = new ExampleFliper()
+        ex.set_list({% raw words_list %});
+        ex.listen();
+        ex.bind();
+    });
+    </script>
+{% end %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}About{% end %}
+
+{% block content %}
+
+{% raw helper.md(
+"""This is a tool for studying Japanese with automatic definition and examples.
+
+This made available thanks to 
+
+1. [JMDict from James William Breen](http://www.csse.monash.edu.au/~jwb/jmdict.html) CC-BY licence
+2. [Examples from Tanaka Corpus](http://www.edrdg.org/wiki/index.php/Tanaka_Corpus) CC-BY licence
+4. [Bootstrap from Twitter](http://getbootstrap.com/)
+5. Python and various opensource components:
+    * tornado
+    * psycopg2
+    * markdown
+""") %}
+
+{% end %}

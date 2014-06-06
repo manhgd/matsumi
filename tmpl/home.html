@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% end %}
+
+{% block content %}
+
+{% raw helper.md(
+"""This is a tool for studying Japanese with automatic definition and examples.
+
+First, create a set, just a list of the words in Japanese.
+
+Then, play around with translation and examples.
+
+In addition, for long paragraph tranlsation help, click Gloss and paste your text there and processs with WWWJDICT.
+
+Enjoy!"""
+) %}
+
+{% end %}

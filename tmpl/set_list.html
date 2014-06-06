@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Select a set{% end %}
+
+{% block content %}
+<div id="set-list" class="list-group">
+    {% for row in avail %}
+        <div class="list-group-item" ">
+            <div class="btn-group">
+                <a href="/words/{{ row['id'] }}" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-font"></span>
+                </a>
+                <a href="/example/{{ row['id'] }}" class="btn btn-success">
+                    <span class="glyphicon glyphicon-list"></span>
+                </a>
+            </div>
+            {{ row['name'] }}
+        </div>
+    {% end %}
+</div>
+{% end %}
+
+{% block javascript %}
+    <script>
+    </script>
+{% end %}
